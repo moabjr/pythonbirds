@@ -1,4 +1,5 @@
 class Pessoa:
+    olhos = 2
     def __init__(self, *filhos, nome=None, idade=41):
         self.idade = idade
         self.nome = nome
@@ -21,3 +22,5 @@ if __name__ == '__main__':
 
     print(moab.__dict__)
     print(renzo.__dict__)
+    print(Pessoa.olhos)
+    print(id(Pessoa.olhos),id(moab.olhos),id(renzo.olhos))
