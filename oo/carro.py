@@ -1,18 +1,24 @@
-"""
-Voce deve criar uma classe que vai possuir dois atributos compostos por duas classes
-1) Motor
-2) Direção
+class Carro:
+    def __init__(self, direcao, motor):
+        self.direcao = direcao
+        self.motor = motor
 
-O Motor terá a responsabilidade de controlar a velocidade ele oferece os seguintes atributos:
-1) Atributo de dado velocidade
-2) Metodo acelerar, que deverá incrementar a velocidade  de uma unidade
-3) Metodo de frear que deverá decrementar a velocidade em duas unidades
+    def calcular_velocidade(self):
+        return self.motor.velocidade
 
-A Direção terá a responsabilidade de controlar a direção. Ela oferecerá os seguintes atributos:
-1) Valor de direção com valores possiveis : Norte, Sul , Leste, Oeste
-2) Metodo girar para a direita
-3) Metodo girar para a esquerda
-"""
+    def acelerar(self):
+        self.motor.acelerar()
+
+    def frear(self):
+        self.motor.frear()
+
+    def calcular_direcao(self):
+        return self.direcao.valor
+
+    def girar_a_direitar(self):
+        self.girar_a_direitar()
+    def girar_a_esquerda(self):
+        self.girar_a_esquerda()
 NORTE = 'Norte'
 SUL = 'Sul'
 LESTE = 'Leste'
