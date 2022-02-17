@@ -16,3 +16,8 @@ if __name__ == '__main__':
     print(moab.nome, moab.idade)
     for filho in moab.filhos:
         print('O nome do filho do ' + moab.nome +' é ' + filho.nome)
+    moab.sobrenome = 'Lima'
+    del moab.filhos , moab.sobrenome
+
+    print(moab.__dict__)
+    print(renzo.__dict__)
