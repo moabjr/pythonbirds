@@ -48,7 +48,7 @@ class PorcoFake(AtorFake):
 
 
 class PassaroFake(AtorFake):
-    def __init__(self, x=0, y=0):
+    def __init__(self, x=0, y=0):   
         super().__init__(x, y)
         self._lancado = False
         self.colidir_com_chao_executado = False
@@ -111,7 +111,7 @@ class FaseTestes(TestCase):
         fase.adicionar_porco(*porcos)
         fase.adicionar_passaro(*passaros)
 
-        self.assertEqual(EM_ANDAMENTO, fase.status())
+        self.assertEqual(DERROTA, fase.status())
 
         for ator in porcos + passaros:
             ator.status = DESTRUIDO

@@ -44,12 +44,6 @@ class AtorTestes(TestCase):
 
 
     def teste_colisao_entre_atores_ativos(self):
-        """
-        Teste de colisão entre dois atores
-        Inicialmente atores possuem status ATIVO. Ao se chocarem, ele muda para DESTRUIDO
-        A função assert_colisao_atores_ativos testa justamente se dois atore ativos se chocam quando estão em posições
-        vizinhas.
-        """
         ator = Ator(2, 2)  # Ator recém criado deve ter status ativo
         ator2 = Ator(2, 2)
         self.assert_colisao_atores_ativos(ator, ator2)
@@ -111,11 +105,6 @@ class AtorTestes(TestCase):
 
 
     def assert_colisao_atores_ativos(self, ator, ator2, intervalo=1):
-        """
-        Se certifica que há colisão entre atores ativos
-        Atenção: Esse não é método de teste porque nao se inicia com prefixo "text".
-        Ele serve apenas para encapsular toda lógica de teste de colisão entre dois atores ativos
-        """
         # Conferindo status dos dois atores antes da colisão
         self.assertEqual(ator.status, ATIVO, 'Status deveria ser ativo antes da colisão')
         self.assertEqual(ator2.status, ATIVO, 'Status deveria ser ativo antes da colisão')
@@ -125,12 +114,6 @@ class AtorTestes(TestCase):
         self.assertEqual(ator.status, DESTRUIDO, 'Status deveria ser destruido depois da colisão')
 
     def assert_nao_colisao(self, ator, ator2):
-        """
-        Se certifica que não colisão entre dois atores
-        Atenção: Esse não é método de teste porque nao se inicia com prefixo "text".
-        Ele apenas encapsula a lógica de não colisão entre dois atores.
-        So seja, eles deve manter seus respectivos status mesmo depois da chamada do metodo colidir
-        """
         # Armazenando status antes da colisão
         status_inicial_ator = ator.status
         status_inicial_ator_2 = ator2.status
@@ -167,13 +150,6 @@ class PorcoTestes(TestCase):
 
 
 class PassaroBaseTests(TestCase):
-    """
-    Classe base para teste de passaros.
-    Essa classe não contèm nenhum teste, serve apenas para encapsular a lógica de asserção de posição de passaros
-    vermelhos e também dos amarelos.
-
-    """
-
     def assert_passaro_posicao(self, x_esperado, y_esperado, status_esperado, passaro, tempo):
         """
         Método que se testa posição do pássaro.
@@ -191,10 +167,6 @@ class PassaroBaseTests(TestCase):
 
 
 class PassaroVermelhoTests(PassaroBaseTests):
-    """
-    Classe de teste e Passaro Vermelho
-    """
-
     def teste_status(self):
         passaro_vermelho = PassaroVermelho(1, 1)
         self.assertEqual('V', passaro_vermelho.caracter())
@@ -208,11 +180,6 @@ class PassaroVermelhoTests(PassaroBaseTests):
 
 
     def teste_foi_lancado(self):
-        """
-        Teste de lançamento. Enquanto o método lançar do passaro não for chamado, o méotodo foi_lancado deve retornar
-        Falso
-        :return:
-        """
         passaro_vermelho = PassaroVermelho(1, 1)
         self.assertFalse(passaro_vermelho.foi_lancado(),
                          'Se o método lançar ainda não foi executado, deve retornar falso')
@@ -754,7 +721,7 @@ class PassaroAmareloTests(PassaroBaseTests):
     def assert_posicao_vertical(self, y, tempo, passaro):
         """
          Método auxiliar que mantém x fixo com valor 1, status Ativo, variando apenas o tempo e a posição y
-         Atenção, esse não é um teste porque não começa com prefixo "test"
+        , Atenção, esse não é um teste porque não começa com prefixo "test"
          """
         self.assert_passaro_posicao(1, y, ATIVO, passaro, tempo)
 
